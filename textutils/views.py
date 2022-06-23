@@ -6,19 +6,25 @@ from django.shortcuts import render
 def index(request):
      return render(request, 'index.html')
 
-def removepunc(request):
-     djtext = request.GET.get('text', 'default')
-     print(djtext)
-     return HttpResponse("remove punc")
+def analyze(request):
+     djtext = request.GET.get('text', 'Please Enter some text to show here')
 
-def capfirst(request):
-     return HttpResponse("Capitalize first")
+     removepunc = request.GET.get('removepunc', 'off')
+     capitalizefirst = request.GET.get('capitalizefirst', 'off')
 
-def newlineremove(request):
-     return HttpResponse("New line remove")
+     # punctuations = '''!()-[]{};:'"\,<>./?@#$%^&*_~'''
+     punctuations_list = ['!', '(', ')', '-', '[', ']', '{', '}', ';', ':', "'", '"', '\\', ',', '<', '>', '.', '/', '?', '@', '#', '$', '%', '^', '&', '*', '_', '~']
 
-def spaceremove(request):
-     return HttpResponse("Space remove")
 
-def charcount(request):
-     return HttpResponse("charcount")
+     if removepunc == 'on':
+          analyzed = ""
+
+
+          for char in djtext:
+               if char not in punctuations_list:
+                    analyzed = analyzed + char
+
+          params = {'purpose': 'Removed Punctuations', 'analyzed_text': analyzed}
+          return render(request, 'analyze.html', params)
+     else:
+          return HttpResponse("Error")

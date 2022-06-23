@@ -1,18 +1,14 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1">
-     <title>Home - TextUtils</title>
+     <meta charset="UTF-8">
+     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>TextUtils - Analyzing your text ....</title>
 
      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-
-
-
-
-
 </head>
 
 <body>
@@ -30,34 +26,12 @@
      </header>
 
      <main>
-          <div class="container my-5">
-               <h2 class="text-center my-5">Welcome to TextUtils. Enter your text below to analyze</h1>
-
-                    <form action="/analyze" method="get">
-                         <div class="mb-3 my-5">
-                              <label for="text" class="form-label" style="font-size: 20px;">Enter your text here</label>
-                              <textarea class="form-control" id="text" rows="7" name="text"></textarea>
-                         </div>
-
-                         <input type="checkbox" name="removepunc" id="removepunc"> <label for="removepunc">Remove
-                              Punctuation</label><br>
-
-                         <input type="checkbox" name="capitalizefirst" id="capitalizefirst"> <label
-                              for="capitalizefirst">Capitalize First Letter</label>
-                         <br>
-
-                         <input type="checkbox" name="newlineremove" id="newlineremove"> <label
-                              for="newlineremove">Remove New Line</label> <br>
-
-                         <input type="checkbox" name="removespace" id="removespace"> <label for="removespace">Remove
-                              Spaces</label> <br>
-
-                         <input type="checkbox" name="charcount" id="charcount"> <label for="charcount">Character
-                              Counter</label> <br>
-
-                         <br>
-                         <button class="btn btn-primary" type="submit">Analyze Your Text</button>
-                    </form>
+          <div class="container">
+               <h1>Your Analyzed Text - {{ purpose }}</h1>
+               <br>
+               <p>
+                    {{ analyzed_text }}
+               </p>
           </div>
      </main>
 
